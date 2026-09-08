@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { RobotsModule } from './robots/robots.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { JobsModule } from './jobs/jobs.module';
+import { ShiftCapacityModule } from './shift-capacity/shift-capacity.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { JobsModule } from './jobs/jobs.module';
     }),
     RobotsModule,
     JobsModule,
+    ShiftCapacityModule,
   ],
   controllers: [AppController],
   providers: [AppService],

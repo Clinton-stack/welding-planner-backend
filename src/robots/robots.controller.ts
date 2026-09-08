@@ -62,3 +62,4 @@ export class RobotsController {
     return this.robotsService.remove(id);
   }
 }
+ 

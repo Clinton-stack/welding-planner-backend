@@ -6,6 +6,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { JobStatus } from '../enums/job-status.enum';
+import { ShiftCode } from '../enums/shift-code.enum';
 
 @Entity()
 export class Job {
@@ -59,6 +60,13 @@ export class Job {
     default: JobStatus.OPEN,
   })
   status!: JobStatus;
+  @Column({
+    type: 'text'
+  })
+  shift!: ShiftCode;
+
+  @Column({ type: 'date'})
+  date!: string;
 
   @CreateDateColumn()
   createdAt!: Date;
