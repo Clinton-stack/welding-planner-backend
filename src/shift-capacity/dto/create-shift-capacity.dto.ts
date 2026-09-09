@@ -3,12 +3,12 @@ import { IsEnum, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import { ShiftCode } from 'src/jobs/enums/shift-code.enum';
 
 export class CreateShiftCapacityDto {
-  @ApiProperty({ example: 'nsnsnd-iwiwdiw-iw' })
+  @ApiProperty({ example: '64ebad1b-6507-41f0-9dcb-0dade446a6cd' })
   @IsString()
   @IsNotEmpty()
   robotId!: string;
 
-  @ApiProperty({ example: 'YYYY-MM-DD'})
+  @ApiProperty({ example: '2026-06-08' })
   @IsString()
   @IsNotEmpty()
   date!: string;

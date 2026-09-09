@@ -12,7 +12,7 @@ import { ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';
 import { JobsService } from './jobs.service';
 import { CreateJobDto } from './dto/create-job.dto';
 import { UpdateJobDto } from './dto/update-job.dto';
-import { FindJobsQueryDto } from './dto/find-jobs-query';
+import { FindJobsQueryDto } from './dto/find-jobs-query.dto';
 
 @Controller('jobs')
 export class JobsController {

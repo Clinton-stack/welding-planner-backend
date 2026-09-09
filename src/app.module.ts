@@ -8,7 +8,7 @@ import { ShiftCapacityModule } from './shift-capacity/shift-capacity.module';
 
 @Module({
   imports: [
-    //Setting up the database connection using TypeORM with better-sqlite3 driver
+    // Setting up the database connection using TypeORM with SQLite.
     TypeOrmModule.forRoot({
       type: 'sqlite',
       database: 'planner.sqlite',

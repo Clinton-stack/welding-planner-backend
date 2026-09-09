@@ -6,7 +6,7 @@ import { Job } from './entities/job.entity';
 import { Repository } from 'typeorm';
 import { findOneOrThrow } from 'src/helpers/find-or-throw';
 import { Robot } from 'src/robots/entities/robot.entity';
-import { FindJobsQueryDto } from './dto/find-jobs-query';
+import { FindJobsQueryDto } from './dto/find-jobs-query.dto';
 
 @Injectable()
 export class JobsService {
