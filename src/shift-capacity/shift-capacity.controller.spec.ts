@@ -8,7 +8,12 @@ describe('ShiftCapacityController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [ShiftCapacityController],
-      providers: [ShiftCapacityService],
+      providers: [
+        {
+          provide: ShiftCapacityService,
+          useValue: {},
+        },
+      ],
     }).compile();
 
     controller = module.get<ShiftCapacityController>(ShiftCapacityController);

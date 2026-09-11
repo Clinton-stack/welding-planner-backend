@@ -13,6 +13,7 @@ import { JobsService } from './jobs.service';
 import { CreateJobDto } from './dto/create-job.dto';
 import { UpdateJobDto } from './dto/update-job.dto';
 import { FindJobsQueryDto } from './dto/find-jobs-query.dto';
+import { UpdateSuProgressDto } from './dto/update-su-progress.dto';
 
 @Controller('jobs')
 export class JobsController {
@@ -37,6 +38,17 @@ export class JobsController {
   @ApiResponse({ status: 404, description: 'Job not found' })
   findOne(@Param('id') id: string) {
     return this.jobsService.findOne(id);
+  }
+
+  @Patch(':id/su-progress')
+  @ApiOperation({ summary: 'Update SU progress for a handover job' })
+  @ApiParam({ name: 'id', description: 'Job ID' })
+  @ApiResponse({ status: 404, description: 'Job not found' })
+  updateSuProgress(
+    @Param('id') id: string,
+    @Body() updateSuProgressDto: UpdateSuProgressDto,
+  ) {
+    return this.jobsService.updateSuProgress(id, updateSuProgressDto);
   }
 
   @Patch(':id')

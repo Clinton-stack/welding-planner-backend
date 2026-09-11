@@ -2,6 +2,7 @@ import { ApiPropertyOptional } from '@nestjs/swagger';
 import { Transform, Type } from 'class-transformer';
 import { IsBoolean, IsEnum, IsNumber, IsOptional, IsString } from 'class-validator';
 import { JobStatus } from '../enums/job-status.enum';
+import { JobType } from '../enums/job-type.enum';
 import { ShiftCode } from '../enums/shift-code.enum';
 
 function toOptionalBoolean(value: unknown) {
@@ -35,16 +36,20 @@ export class FindJobsQueryDto {
   @IsEnum(JobStatus)
   status?: JobStatus;
 
+  @ApiPropertyOptional({ enum: JobType, example: JobType.PRODUCTION })
+  @IsOptional()
+  @IsEnum(JobType)
+  jobType?: JobType;
+
   @ApiPropertyOptional({ example: 'Pesa' })
   @IsOptional()
   @IsString()
   projekt?: string;
 
-  @ApiPropertyOptional({ example: 95 })
+  @ApiPropertyOptional({ example: '94-01' })
   @IsOptional()
-  @Type(() => Number)
-  @IsNumber()
-  artikelNummer?: number;
+  @IsString()
+  artikelNummer?: string;
 
   @ApiPropertyOptional({ example: 2 })
   @IsOptional()

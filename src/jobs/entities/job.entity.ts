@@ -6,6 +6,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { JobStatus } from '../enums/job-status.enum';
+import { JobType } from '../enums/job-type.enum';
 import { ShiftCode } from '../enums/shift-code.enum';
 
 @Entity()
@@ -20,7 +21,7 @@ export class Job {
   projekt!: string;
 
   @Column()
-  artikelNummer!: number;
+  artikelNummer!: string;
 
   @Column()
   schritt!: number;
@@ -42,6 +43,21 @@ export class Job {
 
   @Column()
   ruestMinutes!: number;
+
+  @Column({
+    type: 'text',
+    default: JobType.PRODUCTION,
+  })
+  jobType!: JobType;
+
+  @Column({ nullable: true })
+  progressPercent?: number;
+
+  @Column({ nullable: true })
+  remainingAnlageMinutes?: number;
+
+  @Column({ default: false })
+  carriedFromPreviousShift!: boolean;
 
   @Column({ default: false })
   schonGeheftet!: boolean;

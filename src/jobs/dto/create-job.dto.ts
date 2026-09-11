@@ -3,11 +3,12 @@ import {
   IsBoolean,
   IsEnum,
   IsNotEmpty,
-  IsNumber,
   IsOptional,
+  IsNumber,
   IsString,
 } from 'class-validator';
 import { JobStatus } from '../enums/job-status.enum';
+import { JobType } from '../enums/job-type.enum';
 import { ShiftCode } from '../enums/shift-code.enum';
 
 export class CreateJobDto {
@@ -21,10 +22,10 @@ export class CreateJobDto {
   @IsNotEmpty()
   projekt!: string;
 
-  @ApiProperty({ example: 95 })
-  @IsNumber()
+  @ApiProperty({ example: '94-01' })
+  @IsString()
   @IsNotEmpty()
-  artikelNummer!: number;
+  artikelNummer!: string;
 
   @ApiProperty({ example: 2 })
   @IsNotEmpty()
@@ -60,6 +61,11 @@ export class CreateJobDto {
   @IsNotEmpty()
   @IsNumber()
   ruestMinutes!: number;
+
+  @ApiPropertyOptional({ enum: JobType, example: JobType.PRODUCTION })
+  @IsOptional()
+  @IsEnum(JobType)
+  jobType?: JobType;
 
   @ApiPropertyOptional({ example: true })
   @IsOptional()
